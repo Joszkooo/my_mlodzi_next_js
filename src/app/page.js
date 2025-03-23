@@ -25,9 +25,9 @@ export default function Home() {
     <>
       <main>
         <div className="flex flex-col lg:flex-row h-screen">
-          <div className="relative min-w-[70%] min-h-full bg-cover">
+          <div className="relative min-w-[70%] bg-contain">
             <div
-              className="relative min-h-full overflow-hidden min-w-full bg-cover bg-center block"
+              className="relative min-h-full overflow-hidden  min-w-full bg-cover bg-center block"
             >
               <Carousel
               // plugins={[
@@ -43,17 +43,20 @@ export default function Home() {
                 <CarouselContent>
                   {photos.map((photo, i) => (
                     <CarouselItem key={i}>
-                      <div className="relative w-full h-full aspect-auto min-h-[100vh]">
-                        <Image
-                          alt="Opis działań fundacji"
-                          src={photo}
-                          quality={100}
-                          fill
-                          sizes="100vw"
-                          className={`object-cover ${i === 1 || i === 4 ? 'object-right' : 'object-center'}`}
-                          priority
-                        />
-                      <TextFiles index={i}/>
+                      <div className={`relative grid ${i === 1 || i === 4 ? 'grid-cols-2' : 'grid-rows-2'} min-h-[100vh]`}>
+                        <div className="">
+                          <TextFiles index={i}/>
+                        </div>
+                        <div className="aspect-auto">
+                          <Image
+                            alt="Opis działań fundacji"
+                            src={photo}
+                            // quality={100}
+                            fill
+                            className={`object-contain ${i === 1 || i === 4 ? 'object-right' : 'object-bottom'} `}
+                            priority
+                          />
+                        </div>
                       </div>
                   </CarouselItem>
                   ))}

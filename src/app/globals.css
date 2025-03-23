@@ -86,16 +86,6 @@ body {
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-
-  --fs-xl: ;
-  --fs-600: ;
-  --fs-500: ;
-  --fs-400: ;
-
-  --fs-s1-xl: ;
-  --fs-s1-600: ;
-  --fs-s1-500: ;
-  --fs-s1-400: ;
 }
 
 .dark {
