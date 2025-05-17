@@ -1,3 +1,4 @@
+
 import Autoplay from "embla-carousel-autoplay"
 import {
     Carousel,
@@ -37,7 +38,7 @@ export default function CarouselSection(){
         <CarouselContent className="h-full">
           {photos.map((photo, i) => (
             <CarouselItem key={i} className="h-[100vh]">
-              <div className={`relative grid ${i === 1 || i === 4 ? 'grid-cols-2' : 'grid-rows-2'} h-full`}>
+              <div className={`relative grid ${i === 1 ? 'grid-cols-2' : 'grid-rows-2'} h-full`}>
                 
                 <div className="relative p-2 overflow-y-auto z-10">
                     <TextFiles index={i} />

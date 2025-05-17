@@ -24,18 +24,20 @@ const terms = [
 
 export default function Rules() {
   return (
-    <div className="h-screen flex justify-center bg-gray-50">
-      <div className="w-full max-w-3xl max-h-full overflow-y-auto bg-white shadow-lg rounded-lg p-6 m-4">
-        <h1 className="text-3xl font-bold text-center mb-6">Regulamin</h1>
+    <div className="flex items-center justify-center min-h-screen bg-gray-50 p-4">
+      <div className="w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white shadow-lg rounded-lg p-6 sm:p-8">
+        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-6">
+          Regulamin
+        </h1>
         <ol className="list-decimal list-inside space-y-4 text-gray-700">
-          {terms.map(( text ) => (
-            <li key={text} className="text-base leading-relaxed">
+          {terms.map((text, idx) => (
+            <li key={idx} className="text-base sm:text-lg leading-relaxed">
               {text}
             </li>
           ))}
         </ol>
         <div className="mt-6 flex justify-center">
-          <Link href="/">
+          <Link href="/" passHref>
             <Button variant="secondary">Powrót do strony głównej</Button>
           </Link>
         </div>

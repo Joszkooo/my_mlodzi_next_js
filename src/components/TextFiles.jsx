@@ -3,7 +3,7 @@
 export default function TextFiles({ index }){
     const div_base_styles = "text-black px-4 pb-4 md:px-10 md:pb-10 lg:px-12 lg:pb-12"
     const h1_base_styles = "text-4xl md:text-6xl lg:text-[4.5vw] font-bold uppercase p-4 md:p-8 tracking-wide"
-    const p_base_styles = "text-wrap text-lg lg:text-xl xl:text-[1.2vw] mt-4"
+    const p_base_styles = "text-wrap text-lg lg:text-xl xl:text-[1.2vw] p-4 md:p-8 mt-4"
     if(index === 0){
         return(
             <div className={`${div_base_styles}`}>
@@ -41,9 +41,9 @@ export default function TextFiles({ index }){
     
     else if(index === 4){
         return(
-            <div className={`text-black px-6 pb-6 md:px-12 md:pb-12 lg:px-16 lg:pb-16`}>
+            <div className={`${div_base_styles}`}>
                 <h2 className={`${h1_base_styles}`}>ROZRYWKA</h2>
-                <p className={`text-wrap text-xl lg:text-2xl mt-6`}>Czy pamiętasz, kiedy ostatnio bawiłeś się tak, że chciałeś, by wieczór trwał wiecznie? My chcemy, żeby takie chwile były normą w Bartoszycach. <strong>Dlatego zamiast kolejnego festiwalu disco polo, proponujemy wydarzenia z charakterem.</strong> Koncerty, Silent Disco, DJ sety, imprezy, konkursy i wiele więcej. Ożywiamy miasto, ale także pokazujemy mieszkańcom, że rozrywka może być różnorodna i niezapomniana.</p>
+                <p className={`${p_base_styles}`}>Czy pamiętasz, kiedy ostatnio bawiłeś się tak, że chciałeś, by wieczór trwał wiecznie? My chcemy, żeby takie chwile były normą w Bartoszycach. <strong>Dlatego zamiast kolejnego festiwalu disco polo, proponujemy wydarzenia z charakterem.</strong> Koncerty, Silent Disco, DJ sety, imprezy, konkursy i wiele więcej. Ożywiamy miasto, ale także pokazujemy mieszkańcom, że rozrywka może być różnorodna i niezapomniana.</p>
             </div>
         );
     }
