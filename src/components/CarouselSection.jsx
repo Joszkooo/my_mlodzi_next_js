@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/carousel"
 import Image from 'next/image';
 
-import ScrollButton from "./ScrollButton";
 import TextFiles from './TextFiles';
 
 export default function CarouselSection(){
@@ -63,8 +62,6 @@ export default function CarouselSection(){
         <CarouselPrevious className="z-100 left-2"/>
         <CarouselNext className="z-100 right-2"/>
       </Carousel>
-
-      <ScrollButton/>
     </section>
   );
 }

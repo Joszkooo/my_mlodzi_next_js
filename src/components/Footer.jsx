@@ -1,20 +1,44 @@
 import Link from "next/link";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function Footer() {
   return (
-    <footer className="
-        flex flex-col items-center text-center
-        bg-[#f9f9f9] text-base-content rounded p-10
-        space-y-6
-        md:flex-row md:justify-between md:space-y-0
-      ">
+    <footer className="bg-gray-50 text-gray-700 py-8 w-full">
+      <div className="container mx-auto px-4">
+        <Card className="bg-transparent shadow-none border-t">
+          <CardContent className="px-0">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start text-center lg:text-left">
+              <div className="flex flex-col space-y-2">
+                <Link href="/rules" className="hover:underline">
+                  Regulamin
+                </Link>
+              </div>
 
-      <aside className="space-y-2">
-        <Link href="/rules">Regulamin</Link>
-        <p>Telefon: 123 123 123</p>
-        <p>Mail: mymlodzi@gmail.com</p>
-        <p>Copyright © 2024 - All right reserved by My Młodzi Ltd</p>
-      </aside>
+              <div className="flex flex-col space-y-2">
+                <p>
+                  Telefon:
+                  <a href="tel:123123123" className="hover:underline ml-1">
+                    123 123 123
+                  </a>
+                </p>
+                <p>
+                  Mail:
+                  <a
+                    href="mailto:mymlodzi@gmail.com"
+                    className="hover:underline ml-1"
+                  >
+                    mymlodzi@gmail.com
+                  </a>
+                </p>
+              </div>
+
+              <div className="text-sm">
+                <p>© 2024 My Młodzi Ltd. Wszystkie prawa zastrzeżone.</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
     </footer>
   );
 }
