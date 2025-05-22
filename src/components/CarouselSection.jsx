@@ -24,11 +24,11 @@ export default function CarouselSection(){
   return(
     <section className="min-w-[70%] relative">
       <Carousel
-      // plugins={[
-      //   Autoplay({
-      //     delay: 15000,
-      //   }),
-      // ]}
+      plugins={[
+        Autoplay({
+          delay: 15000,
+        }),
+      ]}
       opts={{
         align: "start",
         loop: true,

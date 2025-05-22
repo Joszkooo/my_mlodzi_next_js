@@ -9,6 +9,7 @@ export default function PaymentSuccess({ searchParams: { amount } }) {
         alt="Ręce wyciągające prezenty w ramach podziękowań"
         src="/complete.png"
         fill
+        priority
         className="filter blur-sm md:blur-none"
       />
       <div className="absolute inset-0 flex items-center justify-center">

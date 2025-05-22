@@ -88,7 +88,7 @@ const CheckoutPage = ({amount}) => {
       <CheckboxWithAgreement />
       <Button
         variant="ghost"
-        className="w-full p-5 mt-2 font-bold disabled:opacity-50 disabled:animate-pulse"
+        className="w-full p-5 mt-2 disabled:opacity-50 disabled:animate-pulse"
         disabled={!stripe || loading}
       >
         {!loading ? `Zapłać ${amount} zł` : "Przetwarzanie..."}
