@@ -135,3 +135,10 @@ body {
   top: 50%;
   transform: translateY(-50%);
 }
+
+.h1_clamp{
+  font-size: clamp(1.25rem, 3.25vw, 4.5rem);
+}
+.p_clamp{
+  font-size: clamp(0.75rem, 1.25vw, 1.5rem);
+}

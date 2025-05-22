@@ -37,7 +37,7 @@ export default function CarouselSection(){
         <CarouselContent className="h-full">
           {photos.map((photo, i) => (
             <CarouselItem key={i} className="h-[100vh]">
-              <div className={`relative grid ${i === 1 ? 'grid-cols-2' : 'grid-rows-2'} h-full`}>
+              <div className={`relative grid h-full ${i === 1 ? 'grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1' : 'grid-rows-[auto_1fr]'} `}>
                 
                 <div className="relative p-2 overflow-y-auto z-10">
                     <TextFiles index={i} />
@@ -49,7 +49,7 @@ export default function CarouselSection(){
                     src={photo}
                     fill
                     // jak sie nie bedzie podobac to mozna zmienic na object-fill
-                    className={`object-contain ${i === 1 ? 'object-right' : 'object-bottom'} `}
+                    className={`object-contain ${i === 1 ? 'object-right' : 'object-center'} `}
                     priority
                     sizes="(max-width: 2048px) 100vw, 100vw"
                   />

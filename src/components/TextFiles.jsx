@@ -1,9 +1,9 @@
 "use client";
 
 export default function TextFiles({ index }){
-    const div_base_styles = "text-black px-4 pb-4 md:px-10 md:pb-10 lg:px-12 lg:pb-12"
-    const h1_base_styles = "text-4xl md:text-6xl lg:text-[4.5vw] font-bold uppercase p-4 md:p-8 tracking-wide"
-    const p_base_styles = "text-wrap text-lg lg:text-xl xl:text-[1.2vw] p-4 md:p-8 mt-4"
+    const div_base_styles = "text-black px-4 md:px-10 lg:px-12"
+    const h1_base_styles = "h1_clamp font-bold uppercase p-4 md:p-8 tracking-wide"
+    const p_base_styles = "p_clamp break-words p-4 md:p-8"
     if(index === 0){
         return(
             <div className={`${div_base_styles}`}>
