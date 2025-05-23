@@ -9,7 +9,7 @@ export default function CheckoutSection() {
       <h1 className="text-4xl md:text-6xl lg:text-[2.5vw] font-bold text-white uppercase px-10">
         Współtwórz
       </h1>
-      <h1 className="text-4xl md:text-6xl lg:text-[2.5vw] font-bold text-white uppercase px-10 mb-5">
+      <h1 className="text-4xl md:text-6xl lg:text-[2.5vw] font-bold text-white uppercase px-10 mb-2">
         z nami przyszłość!
       </h1>
       <p className="text-base md:text-3xl lg:text-[1.1vw] text-white justify-between text-wrap p-4">

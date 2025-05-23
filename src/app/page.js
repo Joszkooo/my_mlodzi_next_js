@@ -14,7 +14,7 @@ export default function Home() {
       <main className="flex flex-col lg:flex-row flex-1">
         <CarouselSection />
         <div ref={checkoutRef}>
-          <CheckoutSection  />
+          <CheckoutSection/>
         </div>
       </main>
       <ScrollButton targetRef={checkoutRef}/>

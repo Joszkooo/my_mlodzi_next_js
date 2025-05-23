@@ -1,21 +1,28 @@
 "use client"
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {
   useStripe,
   useElements,
   PaymentElement
 } from "@stripe/react-stripe-js";
 import convertToSubcurrency from "@/lib/convertToSubcurrency";
-import { Button, Loader2 } from "./ui/button";
+import { Button } from "./ui/button";
 import CheckboxWithAgreement  from "./CheckboxWithAgreement";
 
-
-const CheckoutPage = ({amount}) => {
+export default function CheckoutPage({amount}) {
   const stripe = useStripe();
   const elements = useElements();
-  const [errorMessage, setErrorMessage] = useState();
+
   const [clientSecret, setClientSecret] = useState("");
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+
+  const [agreed, setAgreed] = useState(false);
+  const [fieldWarning, setFieldWarning] = useState("");
 
   useEffect(() => {
     fetch("/api/create-payment-intent", {
@@ -26,16 +33,39 @@ const CheckoutPage = ({amount}) => {
       body: JSON.stringify({ amount: convertToSubcurrency(amount) }),
     })
       .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret));
+      .then((data) => setClientSecret(data.clientSecret))
+      .catch(() => {
+        setErrorMessage("Nie udało się utworzyć sesji płatności.")});
   }, [amount]);
+
+  useEffect(() => {
+    if (agreed) setFieldWarning("")
+  }, [agreed])
+
+  const validate = () => {
+    if (!firstName.trim() || !lastName.trim()) {
+      setErrorMessage("Podaj imię i nazwisko.")
+      return false
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setErrorMessage("Podaj poprawny adres e-mail.")
+      return false
+    }
+    if (!/^[\d\s+()-]+$/.test(phone)) {
+      setErrorMessage("Podaj poprawny numer telefonu.")
+      return false
+    }
+    return true
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setLoading(true);
+    setErrorMessage(null);
 
     if (!stripe || !elements) {
       return;
-    }
+    } 
+    setLoading(true);
 
     const { error: submitError } = await elements.submit();
 
@@ -49,7 +79,7 @@ const CheckoutPage = ({amount}) => {
       elements,
       clientSecret,
       confirmParams: {
-        return_url: `http://www.localhost:3000/payment-success?amount=${amount}`,
+        return_url: `${window.location.origin}/payment-success?amount=${amount}`,
       },
     });
 
@@ -67,36 +97,81 @@ const CheckoutPage = ({amount}) => {
 
   if (!clientSecret || !stripe || !elements) {
     return (
-      <div className="flex items-center justify-center">
-        <div
-          className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-e-transparent align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite] dark:text-white"
-          role="status"
-        >
-          <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-            Loading...
-          </span>
-        </div>
-      </div>
+      <span className="loader"></span>
     );
   }
 
   return (
     <form onSubmit={handleSubmit}>
       {clientSecret && <PaymentElement />}
-      {errorMessage && <div>{errorMessage}</div>}
+      {fieldWarning && (
+        <div className="text-red-700 bg-red-50 border border-red-200 px-3 py-2 m-2 rounded text-sm">
+          {fieldWarning}
+        </div>
+      )}
+
+      <fieldset className="space-y-2 mt-3">
+        <p className="text-muted-foreground text-sm">Dane do kontaktu (nieobowiązkowe)</p>
+        <input
+          type="text"
+          placeholder="Imię i Nazwisko"
+          className="w-full p-3 border rounded"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          readOnly={!agreed}
+          onFocus={(e) => {
+            if (!agreed) {
+              setFieldWarning("Zaznacz zgodę, aby edytować dane.");
+              e.target.blur();
+            }
+          }}
+          />
+
+        <input
+          type="email"
+          placeholder="Email"
+          className="w-full p-3 border rounded"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          readOnly={!agreed}
+          onFocus={(e) => {
+            if (!agreed) {
+              setFieldWarning("Zaznacz zgodę, aby edytować dane.");
+              e.target.blur();
+            }
+          }}
+          />
+
+        <input
+          type="tel"
+          placeholder="Telefon"
+          className="w-full p-3 border rounded"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          readOnly={!agreed}
+          onFocus={(e) => {
+            if (!agreed) {
+              setFieldWarning("Zaznacz zgodę, aby edytować dane.");
+              e.target.blur();
+            }
+          }}
+          />
+      </fieldset>
       
-      <CheckboxWithAgreement />
+      <CheckboxWithAgreement checked={agreed} onChange={setAgreed}/>
+      
+      {errorMessage && (
+        <div className="text-red-600 text-sm">{errorMessage}</div>
+      )}
+
       <Button
+        type="submit"
         variant="ghost"
         className="w-full p-5 mt-2 disabled:opacity-50 disabled:animate-pulse"
         disabled={!stripe || loading}
       >
-        {!loading ? `Zapłać ${amount} zł` : "Przetwarzanie..."}
+        {!loading ? `Przekaż darowiznę` : "Przetwarzanie..."}
       </Button>
     </form>
   )
-}
-
-export default CheckoutPage;
-
-
+};
