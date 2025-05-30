@@ -8,6 +8,7 @@ import {
 import convertToSubcurrency from "@/lib/convertToSubcurrency";
 import { Button } from "./ui/button";
 import CheckboxWithAgreement  from "./CheckboxWithAgreement";
+import sendMail from "@/lib/sendMail";
 
 export default function CheckoutPage({amount}) {
   const stripe = useStripe();
@@ -73,6 +74,15 @@ export default function CheckoutPage({amount}) {
       setErrorMessage(submitError.message);
       setLoading(false);
       return;
+    }
+    if(agreed){
+      var today = new Date();
+      var dd = String(today.getDate()).padStart(2, '0');
+      var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      var yyyy = today.getFullYear();
+
+      today = mm + '/' + dd + '/' + yyyy;
+      sendMail(today, name, email, phone, amount);
     }
 
     const { error } = await stripe.confirmPayment({
