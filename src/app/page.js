@@ -13,7 +13,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen" >
       <main className="flex flex-col lg:flex-row flex-1">
         <CarouselSection />
-        <div ref={checkoutRef}>
+        <div ref={checkoutRef} className="flex flex-col lg:flex-row flex-1">
           <CheckoutSection/>
         </div>
       </main>

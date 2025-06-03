@@ -8,6 +8,7 @@ import {
 import convertToSubcurrency from "@/lib/convertToSubcurrency";
 import { Button } from "./ui/button";
 import CheckboxWithAgreement  from "./CheckboxWithAgreement";
+import sendMail from "@/lib/sendMail";
 
 export default function CheckoutPage({amount}) {
   const stripe = useStripe();
@@ -42,22 +43,6 @@ export default function CheckoutPage({amount}) {
     if (agreed) setFieldWarning("")
   }, [agreed])
 
-  const validate = () => {
-    if (!firstName.trim() || !lastName.trim()) {
-      setErrorMessage("Podaj imię i nazwisko.")
-      return false
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setErrorMessage("Podaj poprawny adres e-mail.")
-      return false
-    }
-    if (!/^[\d\s+()-]+$/.test(phone)) {
-      setErrorMessage("Podaj poprawny numer telefonu.")
-      return false
-    }
-    return true
-  }
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     setErrorMessage(null);
@@ -73,6 +58,15 @@ export default function CheckoutPage({amount}) {
       setErrorMessage(submitError.message);
       setLoading(false);
       return;
+    }
+    if(agreed){
+      var today = new Date();
+      var dd = String(today.getDate()).padStart(2, '0');
+      var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      var yyyy = today.getFullYear();
+
+      today = mm + '/' + dd + '/' + yyyy;
+      sendMail({date: today, name, email, phone, amount});
     }
 
     const { error } = await stripe.confirmPayment({
@@ -167,7 +161,7 @@ export default function CheckoutPage({amount}) {
       <Button
         type="submit"
         variant="ghost"
-        className="w-full p-5 mt-2 disabled:opacity-50 disabled:animate-pulse"
+        className="w-full p-5 mt-6 disabled:opacity-50 disabled:animate-pulse border-2 border-[#161515]"
         disabled={!stripe || loading}
       >
         {!loading ? `Przekaż darowiznę` : "Przetwarzanie..."}

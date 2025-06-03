@@ -1,8 +1,14 @@
+'use client'
+
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export default function PaymentSuccess({ searchParams: { amount } }) {
+export default function PaymentSuccess() {
+  const searchParams = useSearchParams();
+  const amount = searchParams.get("amount");
+  
   return (
     <section>
       <Image

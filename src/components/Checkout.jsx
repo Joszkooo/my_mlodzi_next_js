@@ -11,8 +11,7 @@ if (process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY === undefined) {
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
-export default function Checkout() {
-  const amount = 20.00;
+export default function Checkout({amount}) {
   return (
     <Elements
       stripe={stripePromise}
