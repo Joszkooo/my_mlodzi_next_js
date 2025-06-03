@@ -5,11 +5,21 @@ import { Input } from "@/components/ui/input"; // ShadCN Input
 export default function CheckoutSection() {
   const [amount, setAmount] = useState("20");
 
-  //TODO zmienić to aby nie przyjmowało liter tylko liczby
-  function handleAmountChange(Event){
-    const value = Event.target.value.replace(/[^0-9.]/g, ""); // strip non-numerics
-    setAmount(value);
-  }
+  
+  function handleAmountChange(e) {
+    const rawValue = e.target.value;
+
+    // Allow only digits and one dot (.) for decimal values
+    const cleaned = rawValue.replace(/[^0-9.]/g, "");
+
+    // Only allow one decimal point
+    const valid = cleaned.split(".").length > 2
+      ? cleaned.slice(0, cleaned.lastIndexOf(".")).replace(/\./g, "") + "." + cleaned.split(".").pop()
+      : cleaned;
+
+    setAmount(valid);
+}
+
   return (
     <section
       id="checkout-section"
@@ -37,8 +47,9 @@ export default function CheckoutSection() {
           Wpisz kwotę darowizny (PLN)
         </label>
         <Input
-          type="number"
-          min="1"
+          type="text"
+          inputMode="decimal"
+          pattern="[0-9]*[.,]?[0-9]*"
           value={amount}
           onChange={handleAmountChange}
           placeholder="Wpisz kwotę..."
@@ -46,7 +57,7 @@ export default function CheckoutSection() {
         />
 
         <div className="border-t pt-2">
-          <Checkout amount={parseFloat(amount || "0")} />
+          <Checkout amount={parseFloat(amount) > 0 ? parseFloat(amount) : 1} />
         </div>
       </div>
     </section>
