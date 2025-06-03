@@ -5,14 +5,13 @@ import CarouselSection from "../components/CarouselSection";
 import Footer from "../components/Footer";
 import ScrollButton from "../components/ScrollButton";
 import { useRef } from "react";
-import { Analytics } from "@vercel/analytics/next"
 
 export default function Home() {
   const checkoutRef = useRef(null);
 
   return (
     <div className="flex flex-col min-h-screen" >
-      <Analytics/>
+
       <main className="flex flex-col lg:flex-row flex-1">
         <CarouselSection />
         <div ref={checkoutRef} className="flex flex-col lg:flex-row flex-1">
