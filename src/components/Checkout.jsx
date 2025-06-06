@@ -5,6 +5,8 @@ import convertToSubcurrency from "../lib/convertToSubcurrency.js";
 import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
 
+export const dynamic = "force-dynamic";
+
 if (process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY === undefined) {
     throw new Error("NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY is not defined");
 }

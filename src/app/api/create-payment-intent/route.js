@@ -1,5 +1,8 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
+
+export const dynamic = "force-dynamic";
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+
 
 export async function POST(request) {
   try {
