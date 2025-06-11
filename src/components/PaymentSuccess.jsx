@@ -29,7 +29,7 @@ export default function PaymentSuccess() {
           <p className="mt-5">
             Jeśli masz jakieś pytania, proszę napisz{" "}
             <a href="mailto:mymlodzi@gmail.com" className="underline">
-              mymlodzi@gmail.com
+              info@rozkwit.miasta.pl
             </a>
           </p>
 
