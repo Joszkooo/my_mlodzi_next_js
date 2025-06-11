@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <Card className="bg-transparent shadow-none border-t">
           <CardContent className="px-0">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start text-center lg:text-left">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-2 items-center text-center lg:text-left">
               <div className="flex flex-col space-y-2">
                 <Link href="/rules" className="hover:underline">
                   Regulamin
@@ -18,23 +18,24 @@ export default function Footer() {
                 <p>
                   Telefon:
                   <a href="tel:123123123" className="hover:underline ml-1">
-                    123 123 123
+                    +48 695 726 837
                   </a>
                 </p>
+              </div>
+              <div>
                 <p>
                   Mail:
                   <a
                     href="mailto:mymlodzi@gmail.com"
                     className="hover:underline ml-1"
                   >
-                    mymlodzi@gmail.com
+                    info@rozkwit.miasta.pl 
                   </a>
                 </p>
               </div>
-
-              <div className="text-sm">
+              {/* <div className="text-sm">
                 <p>© 2024 My Młodzi Ltd. Wszystkie prawa zastrzeżone.</p>
-              </div>
+              </div> */}
             </div>
           </CardContent>
         </Card>
