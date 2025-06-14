@@ -9,8 +9,8 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "MyMlodzi",
-  description: "Fundacja My Mlodzi",
+  title: "Rozkwit",
+  description: "Fundacja Rozkwit",
 };
 
 export const viewport = {

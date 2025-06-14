@@ -8,16 +8,19 @@ export default function TextFiles({ index }){
         return(
             <div className={`${div_base_styles}`}>
                 <h1 className={`${h1_base_styles}`}>ROZKWIT</h1>
-                <p className={`${p_base_styles}`}>Umiemy rozwinąć Twój region tak, by niczego Ci nie brakowało. Nie jest to tylko suchy slogan. <strong>Od 2014 roku organizujemy największe lokalne wydarzenia i programy pod szyldem „My Młodzi” oraz „Nasze Miasto”</strong>, a dziś wspólnie jako fundacja „Rozkwit” zwiększamy jakość życia mieszkańców. Dotarliśmy do tysięcy rodzin z „Zwariowanymi Blokowiskami”, wsparliśmy dziesiątki nastolatków naszymi programami, pomogliśmy mieszkańcom w rozwiązywaniu ich codziennych problemów i ożywiliśmy imprezami nawet najbardziej zabetonowane zakątki miast.<strong> To dopiero początek, który możesz z nami tworzyć!</strong></p>
+                <p className={`${p_base_styles}`}>Umiemy rozwinąć Twój region tak, by niczego Ci nie brakowało. Nie jest to tylko suchy slogan.<strong> Od 2014 roku organizujemy największe lokalne wydarzenia i programy pod szyldem „My Młodzi” oraz „Nasze Miasto”</strong>, a dziś wspólnie jako fundacja „Rozkwit” zwiększamy jakość życia mieszkańców. Dotarliśmy do tysięcy rodzin ze „Zwariowanymi Blokowiskami”, wsparliśmy dziesiątki nastolatków naszymi programami, pomogliśmy mieszkańcom w rozwiązywaniu ich codziennych problemów i ożywiliśmy imprezami nawet najbardziej zabetonowane zakątki miast. <strong>Z Twoją pomocą możemy zrobić jeszcze więcej.</strong></p>
             </div>
         );
     }
-    // tutaj poprawic
     else if (index === 1){
         return(
             <div className={`${div_base_styles}`}>
                 <h2 className={`${h1_base_styles}`}>ZDOLNI!</h2> 
-                <p className={`${p_base_styles}`}>Przegrani już na starcie. Wiele Młodych tak właśnie określa swoją sytuacje przez brak dostępu do wysokiej jakości placówek edukacyjnych, zajęć pozalekcyjnych, możliwości rozwoju. Tylko odważni nastolatkowie próbują sięgnąć po swoje marzenia. Właśnie dla nich tworzymy program „Zdolni!”. <strong>To pierwsze stypendium, które nie ogranicza się do sztywnych kryteriów takich jak oceny, osiągnięcia, czy zaangażowanie w szkole.</strong> Zgłosić może się każdy z swoim planem na rozwój. Doceniamy Młodych za ich pasję i pozwalamy im samodzielnie decydować, jak wykorzystać nagrodę, by spełniać marzenia i rozwijać swoje talenty. <strong>To właśnie my jako pierwsi w regionie doceniliśmy tak mocno Urszulę Sipko, kilkukrotną mistrzynię Polski i medalistkę mistrzostw Europy.</strong></p>
+                <p className={`${p_base_styles}`}>„Przegrani już na starcie” - tak wielu Młodych opisuje swoją sytuację. Brak dostępu do dobrej edukacji, zajęć dodatkowych czy możliwości rozwoju sprawia, że marzenia wydają się odległe. Tylko nieliczni mają odwagę po nie sięgnąć.
+                                            <br />Właśnie dla nich stworzyliśmy program <strong>„Zdolni!” - pierwsze stypendium w regionie, które nie ogranicza się do ocen, dyplomów ani świadectw z czerwonym paskiem.</strong>
+                                            <br />Każdy może się zgłosić - wystarczy własny pomysł na rozwój. Doceniamy pasję i pozwalamy samodzielnie zdecydować, jak wykorzystać nagrodę, by spełniać marzenia.
+                                            <br />To dzięki temu jako pierwsi dostrzegliśmy potencjał <strong>Urszuli Sipko</strong>, dziś kilkukrotnej mistrzyni Polski i medalistki mistrzostw Europy.
+                </p>
             </div>
         );
     }
@@ -25,7 +28,10 @@ export default function TextFiles({ index }){
         return(
             <div className={`${div_base_styles}`}>
                 <h2 className={`${h1_base_styles}`}>ZWARIOWANE BLOKOWISKA</h2>
-                <p className={`${p_base_styles}`}>„Zwariowane Blokowiska” to wyjątkowy cykl wakacyjnych spotkań, który od 10 lat ożywia osiedla i wnosi kulturę, sport oraz rekreację tam, gdzie często brakuje takich możliwości. <strong>Naszym celem jest dotarcie do dzieci i ich rodziców z mniejszych społeczności, którzy na co dzień nie mają dostępu do podobnych atrakcji. Od dmuchanych zjeżdżalni i darmowych lodów, po spektakle teatralne – każda edycja to nie tylko zabawa, ale także inspiracja i budowanie więzi.</strong> „Zwariowane Blokowiska” to coś więcej niż rozrywka – to tworzenie przestrzeni, gdzie każdy, bez względu na miejsce zamieszkania, może poczuć się częścią czegoś wyjątkowego.</p>
+                <p className={`${p_base_styles}`}>„Zwariowane Blokowiska” to wyjątkowy cykl wakacyjnych spotkań, który od 10 lat ożywia osiedla i wnosi kulturę, sport oraz rekreację tam, gdzie często brakuje takich możliwości.
+                                                <br />Naszym celem jest dotarcie do dzieci i ich rodziców z mniejszych społeczności, którzy na co dzień nie mają dostępu do podobnych atrakcji. Od dmuchanych zjeżdżalni i darmowych lodów, po spektakle teatralne - każda edycja to nie tylko zabawa, ale także inspiracja i budowanie więzi. 
+                                                <br />„Zwariowane Blokowiska” to coś więcej niż rozrywka - to tworzenie przestrzeni, gdzie każdy, bez względu na miejsce zamieszkania, może poczuć się częścią czegoś wyjątkowego.
+</p>
             </div>
         )
     }
@@ -43,7 +49,10 @@ export default function TextFiles({ index }){
         return(
             <div className={`${div_base_styles}`}>
                 <h2 className={`${h1_base_styles}`}>ROZRYWKA</h2>
-                <p className={`${p_base_styles}`}>Czy pamiętasz, kiedy ostatnio bawiłeś się tak, że chciałeś, by wieczór trwał wiecznie? My chcemy, żeby takie chwile były normą w Bartoszycach. <strong>Dlatego zamiast kolejnego festiwalu disco polo, proponujemy wydarzenia z charakterem.</strong> Koncerty, Silent Disco, DJ sety, imprezy, konkursy i wiele więcej. Ożywiamy miasto, ale także pokazujemy mieszkańcom, że rozrywka może być różnorodna i niezapomniana.</p>
+                <p className={`${p_base_styles}`}>Pamiętasz ostatni wieczór, który chciałeś, by trwał bez końca? Chcemy, żeby takie chwile były codziennością w Bartoszycach.
+                                            <br />Zamiast kolejnych festiwali disco polo, proponujemy <strong>wydarzenia z charakterem:</strong> koncerty, Silent Disco, DJ sety, imprezy plenerowe, konkursy i mnóstwo niespodzianek.
+                                            <br />Nie tylko ożywiamy miasto - <strong>pokazujemy, że rozrywka może być różnorodna, jakościowa i naprawdę niezapomniana.</strong>
+</p>
             </div>
         );
     }
@@ -52,7 +61,11 @@ export default function TextFiles({ index }){
         return(
             <div className={`${div_base_styles}`}>
                 <h2 className={`${h1_base_styles}`}>INFRASTRUKTURA</h2>
-                <p className={`${p_base_styles}`}>Czy Twoje miasto naprawdę odpowiada na Twoje potrzeby? Podczas spacerów badawczych analizujemy przestrzeń miejską i odkrywamy, jak wiele potencjału naszych miast marnuje się przez błędy w ich organizacji. Przyglądamy się chodnikom, zieleni, stanowi technicznemu ulic i osiedli, zbieramy opinie mieszkańców i zgłaszamy konkretne wnioski do urzędów, by wprowadzać realne zmiany. Wspólnie projektujemy rozwiązania, które sprawiają, że miasta stają się bardziej funkcjonalne, dostępne i przyjazne. <strong>Działamy po to, byś czuł się lepiej w każdym miejscu swojego miasta – na osiedlu, w parku, na placu zabaw z dzieckiem czy idąc na zakupy.</strong></p>
+                <p className={`${p_base_styles}`}>Czy Twoje miasto naprawdę odpowiada na Twoje potrzeby?
+                                            <br />Podczas spacerów badawczych analizujemy miejską przestrzeń: chodniki, zieleń, stan ulic i osiedli. Zbieramy głosy mieszkańców i tworzymy konkretne wnioski dla urzędów, które prowadzą do realnych zmian.
+                                            <br />Razem projektujemy rozwiązania, dzięki którym miasto staje się funkcjonalne, dostępne i przyjazne - od osiedla i parku, po plac zabaw czy drogę do sklepu. 
+                                            <br />Zmieniamy Twoje miasto na lepsze.
+                </p>
             </div>
         );
     }
@@ -61,7 +74,10 @@ export default function TextFiles({ index }){
         return(
             <div className={`${div_base_styles}`}>
                 <h2 className={`${h1_base_styles}`}>TWOJE SPRAWY</h2>
-                <p className={`${p_base_styles}`}>Twoje problemy są dla nas priorytetem. To od nich zaczynamy każde działanie. W przeciwieństwie do innych, stawiamy na jakość, która nie jest tylko sloganem, ale konkretnym działaniem opartym na badaniach i realnych potrzebach mieszkańców. <strong>Analizujemy, organizujemy, pracujemy z ekspertami i wprowadzamy zmiany, które mają znaczenie.</strong> To Ty decydujesz, jakie miasto tworzysz, a my pomagamy to zrealizować. Twoja darowizna to nie tylko wsparcie, ale także narzędzie, dzięki któremu masz wpływ na swoje otoczenie. Czy akurat to czego Ci brakuje w Twoim mieście, to nie jest jakość? <strong>My ją zapewniamy.</strong></p>
+                <p className={`${p_base_styles}`}>Twoje problemy są dla nas punktem startu - to od nich zaczynamy każde działanie. Stawiamy na realną jakość, opartą na badaniach i potrzebach mieszkańców, dzięki czemu wprowadzamy konkretne zmiany, które poprawiają życie w Twoim mieście.
+                                            <br />Twoja darowizna pomaga budować nową infrastrukturę - bezpieczne place zabaw, zielone przestrzenie i wygodne chodniki. Wspiera Młodych, którzy dzięki naszym programom mogą rozwijać swoje talenty i realizować marzenia. Pozwala organizować wydarzenia kulturalne i sportowe, które ożywiają osiedla i integrują społeczność.
+                                            <br />Nawet symboliczne wsparcie ma znaczenie i pozwala nam działać skuteczniej.
+                </p>
             </div>
         );
     }
