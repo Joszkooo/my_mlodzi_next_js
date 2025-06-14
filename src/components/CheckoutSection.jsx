@@ -23,7 +23,7 @@ export default function CheckoutSection() {
   return (
     <section
       id="checkout-section"
-      className="flex flex-col text-center items-center p-5 bg-[#2b3e95] min-h-screen"
+      className="flex flex-grow flex-col text-center items-center p-5 bg-[#2b3e95]"
     >
       <h1 className="text-4xl md:text-6xl lg:text-[2.5vw] font-bold text-white uppercase px-10">
         Współtwórz
@@ -38,7 +38,7 @@ export default function CheckoutSection() {
       </p>
       <br />
 
-      <div className="mt-auto bg-white p-2 rounded-xl shadow-md w-full max-w-md space-y-4">
+      <div className="bg-white p-2 rounded-xl shadow-md w-full max-w-md space-y-4">
         <label className="text-left block text-sm font-medium text-gray-700">
           Wpisz kwotę darowizny (PLN)
         </label>
